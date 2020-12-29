@@ -20,10 +20,11 @@ app.get('/api/products', (req, res) => {
     res.send(data.products);
 });
 
-app.get('/api', cors(), (req, res) => {
+app.get('/api', (req, res) => {
     res.send('Server is ready');
 });
+
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
-    console.log('Serve at http://localhost:${port}');
+    console.log(`Serve at http://localhost:${port}`);
 });
