@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "start:dev": "node backend/server.js",
-    "start": "NODE_ENV=production cd frontend && npm install && npm run build && cd .. && node backend/server.js"
+    "start": "NODE_ENV=production node backend/server.js"
   },
   "repository": {
     "type": "git",
