@@ -5,7 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:dev": "node backend/server.js",
+    "start:dev": "nodemon backend/server.js",
     "start": "NODE_ENV=production node backend/server.js"
   },
   "repository": {
