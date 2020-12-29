@@ -1,6 +1,5 @@
 import express  from 'express';
 import data from './data.js';
-import cors from 'cors'
  
 const app = express();
 
@@ -8,9 +7,16 @@ if (process.env.NODE_ENV === "production") {
     app.use(express.static("../frontend/build"));
 }
 
-app.use(cors());
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Credentials", "true");
+    res.setHeader("Access-Control-Allow-Headers", "*");
+    res.setHeader("Access-Control-Allow-Method", "*");
+    next();
+});
+  
 
-app.get('/api/products',cors(), (req, res) => {
+app.get('/api/products', (req, res) => {
     res.send(data.products);
 });
 
