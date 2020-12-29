@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Debby486/amazona-app#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "exit-hook": "^2.2.0",
     "express": "^4.17.1"
   },
