@@ -6,9 +6,6 @@ const __dirname = path.resolve();
 
 const app = express();
 
-if (process.env.NODE_ENV === "production") {
-    app.use(express.static(path.join(__dirname, "frontend/build")));
-}
 
 app.use((req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
@@ -26,6 +23,13 @@ app.get('/api/products', (req, res) => {
 app.get('/api', (req, res) => {
     res.send('Server is ready');
 });
+
+if (process.env.NODE_ENV === "production") {
+    app.use(express.static(path.join(__dirname, "frontend/build")));
+    app.use((req, res, next) => {
+        res.sendFile((path.join(__dirname, "frontend", "build", "index.html")));
+    });
+}
 
 
 const port = process.env.PORT || 5000;
