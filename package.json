@@ -5,7 +5,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node backend/server.js"
+    "start:dev": "node backend/server.js",
+    "start": "NODE_ENV=production cd frontend && npm run build && cd .. && node backend/server.js"
   },
   "repository": {
     "type": "git",
